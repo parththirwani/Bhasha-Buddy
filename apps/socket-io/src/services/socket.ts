@@ -1,6 +1,8 @@
 import {Server,Socket} from "socket.io"
 import Redis from "ioredis"
 import { PrismaClient } from "@prisma/client";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const prisma = new PrismaClient()
 
@@ -9,7 +11,7 @@ const pub = new Redis({
     host:"redis-2b748480-saksham1387-2df5.a.aivencloud.com",
     port:"20402",
     username:"default",
-    password:"AVNS_9GAdZfJGZ2EOlAZYdt_"
+    password:process.env.REDIS_PASSWORD
 });
 
 //@ts-ignore
@@ -17,7 +19,8 @@ const sub = new Redis({
     host:"redis-2b748480-saksham1387-2df5.a.aivencloud.com",
     port:"20402",
     username:"default",
-    password:"AVNS_9GAdZfJGZ2EOlAZYdt_"
+    password:process.env.REDIS_PASSWORD
+   
 })
    
 class SocketService {
