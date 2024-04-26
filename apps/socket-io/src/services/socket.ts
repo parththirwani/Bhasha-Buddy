@@ -9,7 +9,7 @@ const prisma = new PrismaClient()
 //@ts-ignore
 const pub = new Redis({
     host:process.env.REDIS_URL,
-    port:"20402",
+    port:process.env.REDIS_PORT,
     username:"default",
     password:process.env.REDIS_PASSWORD
 });
@@ -17,7 +17,7 @@ const pub = new Redis({
 //@ts-ignore
 const sub = new Redis({
     host:process.env.REDIS_URL,
-    port:"20402",
+    port:process.env.REDIS_PORT,
     username:"default",
     password:process.env.REDIS_PASSWORD
    
