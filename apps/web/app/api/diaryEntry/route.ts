@@ -33,7 +33,6 @@ export async function POST(request: Request, res: NextApiResponse) {
 export async function GET(request: Request, res: NextApiResponse) {
     try {
       const session = await getServerSession(authOptions);
-      console.log(session);
       if (!session || !session.user) {
         return NextResponse.json({ error: "Internal server error1" });
       }

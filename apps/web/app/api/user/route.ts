@@ -7,11 +7,9 @@ import { authOptions } from '@/lib/auth';
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     const session = await getServerSession(authOptions);
-
     if (!session || !session.user) {
       return NextResponse.json({ error: "Internal server error1" });
     }
-    console.log(session);
     //@ts-ignore
     const userId = session.user.id;
 
@@ -40,7 +38,6 @@ export async function POST(request: Request, res: NextApiResponse) {
 
     const userIdString = session.user.name;
     const userId = userIdString ? parseInt(userIdString, 10) : undefined;
-    console.log(userId);
     const res = await request.json();
     const newXP = res.newXP;
 

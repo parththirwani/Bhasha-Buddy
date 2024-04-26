@@ -7,7 +7,6 @@ import { authOptions } from '@/lib/auth';
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     const session = await getServerSession(authOptions);
-    console.log(session);
     if (!session || !session.user) {
         return NextResponse.json({ error: "Internal server error1" });
       }
