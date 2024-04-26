@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  name        String
+  username    String   @unique
+  email       String   @unique
+  password    String
+  xp          Int      @default(100)
+  createdAt   DateTime @default(now())
+  diaryEntries  DiaryEntry[]
+  followers     UserFollowers[]  @relation("UserFollowersAsUser")
+  following     UserFollowers[]  @relation("UserFollowersAsFollowing")
+  rooms        UserInRoom[] 
+}
+
+model DiaryEntry {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+}
+
+model UserFollowers {
+  id          Int     @id @default(autoincrement())
+  user        User    @relation("UserFollowersAsUser", fields: [userId], references: [id])
+  userId      Int
+  follower    User    @relation("UserFollowersAsFollowing", fields: [followerId], references: [id])
+  followerId  Int
+}
+
+model Room {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  users     UserInRoom[]
+  messages  Message[]
+}
+
+model UserInRoom {
+  id       Int     @id @default(autoincrement())
+  user     User    @relation(fields: [userId], references: [id])
+  userId   Int
+  room     Room    @relation(fields: [roomId], references: [id])
+  roomId   Int
+  @@unique([userId, roomId])
+}
+
+
+model Message {
+  id        Int       @id @default(autoincrement())
+  content   String
+  avatar    String
+  createdAt DateTime  @default(now())
+  room      Room      @relation(fields: [roomId], references: [id])
+  roomId    Int
+}

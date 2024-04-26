@@ -1,28 +1,45 @@
-## Getting Started
+<img src="./public/readme-image.png" />
 
-First, run the development server:
+# Introduction
+Bhasha Buddy is a web-application targeting people with speaking Disabilities like stuttering,blocking etc.
+It has Deep Learning Model integerated to idenity a persons disablilty and providing them with appropriate worksheets to improve themseleves
+Users are also provided with the contact information of doctors available near them for further improvement and a proffesional consultation
 
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) – framework
+- [TypeScript](https://www.typescriptlang.org/) – language
+- [Tailwind](https://tailwindcss.com/) – CSS
+- [Neon](https://neon.tech/) – database
+- [Clerk](https://clerk.com/) – auth
+
+
+## Running Locally
+It is written in Nextjs 
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+To run the application run the follwing command
 ```bash
+npm run dev
+# or
 yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+## Enviornment Variables
+Add a .env file in the root directory and add the following variables
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+CLERK_SECRET_KEY
+NEXT_PUBLIC_URL_WHISPER 
+NEXT_PUBLIC_URL_MODEL 
+NEXT_PUBLIC_URL_DIFFUSION
+DATABASE_URL
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-To create [API routes](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) add an `api/` directory to the `app/` directory with a `route.ts` file. For individual endpoints, create a subfolder in the `api` directory, like `api/hello/route.ts` would map to [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

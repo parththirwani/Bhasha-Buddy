@@ -1,0 +1,20 @@
+{
+  "name": "website-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc -p .",
+    "dev": "tsc-watch --onSuccess \"node dist/index.js\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.3",
+    "typescript": "~5.4.3"
+  },
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "ioredis": "^5.3.2",
+    "socket.io": "^4.7.5",
+    "tsc-watch": "^6.2.0"
+  }
+}
