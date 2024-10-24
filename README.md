@@ -1,81 +1,66 @@
-# Turborepo starter
+Bhasha Buddy
+Bhasha Buddy is a web application designed to support individuals with speech disabilities, such as stuttering and blocking. Leveraging cutting-edge deep learning models, it identifies speech impediments and recommends personalized exercises to help users improve their speaking abilities. Additionally, the platform provides contact information for local speech therapists and doctors, enabling users to seek professional consultation for further development.
 
-This is an official starter Turborepo.
+Features
+Speech Disability Detection: Deep learning models analyze speech patterns and identify specific disabilities.
+Personalized Worksheets: Based on the analysis, users receive tailored exercises designed to improve their speech fluency.
+Doctor Recommendations: Users can access contact details of nearby professionals for consultations and therapy.
+Tech Stack
+Next.js – Fast and modern React-based framework for web applications
+TypeScript – Type-safe JavaScript for scalable and maintainable code
+Tailwind CSS – Utility-first CSS framework for rapid UI development
+Neon – Serverless, scalable PostgreSQL database
+Clerk – User authentication and management system
+Getting Started
+To run Bhasha Buddy locally, follow these steps:
 
-## Using this example
+Prerequisites
+Make sure you have Node.js installed. You can install it from here.
 
-Run the following command:
+Installation
+Clone the repository:
+bash
+Copy code
+git clone https://github.com/yourusername/bhasha-buddy.git
+Navigate to the project directory:
+bash
+Copy code
+cd bhasha-buddy
+Install the dependencies:
+bash
+Copy code
+npm install
+# or
+yarn install
+Running the Application
+To start the application, run:
 
-```sh
-npx create-turbo@latest
-```
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
+bash
+Copy code
+npm run dev
+# or
+yarn dev
+# or
 pnpm dev
-```
+# or
+bun dev
+The app will be available at http://localhost:3000.
 
-### Remote Caching
+Environment Variables
+To configure the project, create a .env file in the root directory and add the following environment variables:
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+bash
+Copy code
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_URL_WHISPER=
+NEXT_PUBLIC_URL_MODEL=
+NEXT_PUBLIC_URL_DIFFUSION=
+DATABASE_URL=
+Ensure you replace these with the actual values required by the app.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+Contributing
+We welcome contributions to improve Bhasha Buddy! Feel free to submit pull requests or open issues for any bugs or new features.
 
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+License
+This project is licensed under the MIT License – see the LICENSE file for details.
